@@ -11,7 +11,7 @@
 
 <body>
     <div class="header">
-        <h1>The Rick and Mory API</h1>
+        <h1>The Rick and Mory API<span>By Pedrin Vits </span> </h1>
     </div>
     <section>
         <div class="container">
@@ -36,8 +36,12 @@
                 const div_informacoes = document.createElement('div')
                 const imagem = document.createElement('img'); //cria a tag <img>
                 const nome = document.createElement('p');
-                const status = document.createElement('span')
-                
+                const status = document.createElement('span');
+                const specie = document.createElement('span')
+                const mensagem = document.createElement('p')
+                const lugar = document.createElement('p');
+                const First_seen_in = document.createElement('p');
+                const location = document.createElement('p');
                
                 
 
@@ -47,13 +51,21 @@
                 imagem.classList.add('imagem') //criando uma class="imagem" na tag
                 imagem.src = result.image; //cria o atributo src='#' na tag
                 nome.classList.add('nome_personagem');
-                nome.innerHTML = result.name;
+                nome.innerHTML = 'Name : '+result.name;
                 div.classList.add('personagem');
                 div_imagem.classList.add('imagem_dentro')
                 div_informacoes.classList.add('informacoes')
-                
                 status.classList.add('status_personagem');
-                status.innerHTML = result.status;
+                status.innerHTML = 'Status : '+result.status;
+                specie.classList.add('especie');
+                specie.innerHTML = " - "+result.species;
+                lugar.classList.add('lugar');
+                mensagem.classList.add('mensagem');
+                mensagem.innerHTML = " Ultima vez Visto em : ";
+                lugar.innerHTML = result.origin.name;
+                First_seen_in.innerHTML = "Primeira Vez Visto Em : "
+                location.classList.add('location');
+                location.innerHTML = result.location.name;
                 
                 
                 
@@ -66,6 +78,11 @@
                 div_imagem.appendChild(imagem);
                 div_informacoes.appendChild(nome);
                 div_informacoes.appendChild(status);
+                div_informacoes.appendChild(specie);
+                div_informacoes.appendChild(mensagem);
+                div_informacoes.appendChild(lugar);
+                div_informacoes.appendChild(First_seen_in);
+                div_informacoes.appendChild(location);
 
             })
 
