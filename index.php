@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Rick and Mory API</title>
-    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="estilo.css?v1">
 </head>
 
 <body>
@@ -36,6 +36,7 @@
                 const div_informacoes = document.createElement('div')
                 const imagem = document.createElement('img'); //cria a tag <img>
                 const nome = document.createElement('p');
+                const bolinha = document.createElement('div');
                 const status = document.createElement('span');
                 const specie = document.createElement('span')
                 const mensagem = document.createElement('p')
@@ -47,16 +48,19 @@
 
                 //inserindo atributos nas tags
                 
-                nome.classList.add('nome_personagem');
+                
                 imagem.classList.add('imagem') //criando uma class="imagem" na tag
                 imagem.src = result.image; //cria o atributo src='#' na tag
                 nome.classList.add('nome_personagem');
-                nome.innerHTML = 'Name : '+result.name;
+                nome.innerHTML =result.name;
                 div.classList.add('personagem');
                 div_imagem.classList.add('imagem_dentro')
                 div_informacoes.classList.add('informacoes')
+                // bolinhainnerHTML= "bolinha";
+                bolinha.classList.add("bolinha");
+                
                 status.classList.add('status_personagem');
-                status.innerHTML = 'Status : '+result.status;
+                status.innerHTML = result.status;
                 specie.classList.add('especie');
                 specie.innerHTML = " - "+result.species;
                 lugar.classList.add('lugar');
@@ -77,6 +81,17 @@
                 div.appendChild(div_informacoes)
                 div_imagem.appendChild(imagem);
                 div_informacoes.appendChild(nome);
+                console.log(result.status)
+                if(result.status =="Alive"){
+                    bolinha.classList.add('bolinha_verde');
+                   
+                    
+                }
+                else{
+                    bolinha.classList.add('bolinha_vermelha'); 
+                }
+
+                div_informacoes.appendChild(bolinha);
                 div_informacoes.appendChild(status);
                 div_informacoes.appendChild(specie);
                 div_informacoes.appendChild(mensagem);
